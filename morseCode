@@ -1,0 +1,648 @@
+//Kevin Swanson
+
+// declare pins
+int led = 2;
+int buzz = 5;
+
+//helpful variables
+int pause = 250;
+int len = 0;
+char ch;
+String input = "";
+
+//represents a dot in morse code
+//plays buzzer for a short amount of time while blinking the led
+void dot()
+{
+  Serial.print(".");
+  digitalWrite(buzz, HIGH);
+  digitalWrite(led, HIGH);
+  delay(pause);
+  digitalWrite(buzz, LOW);
+  digitalWrite(led, LOW);
+  delay(pause);
+} 
+
+//represents a dash in morse code
+//funtions the same as dot() but holds the light and sound three times as long
+void dash()
+{
+  Serial.print("-");
+  digitalWrite(buzz, HIGH);
+  digitalWrite(led, HIGH);
+  delay(pause * 3);
+  digitalWrite(buzz, LOW);
+  digitalWrite(led, LOW);
+  delay(pause);
+}
+
+// morse code alphabet
+//uses dot() and dash() along with delays to simulate a morse code translator
+void a()
+{
+dot();
+delay(pause);
+dash();
+delay(pause);
+}
+void b()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+void c()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+}
+void d()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+void e()
+{
+dot();
+delay(pause);
+}
+void f()
+{
+dot();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+}
+void g()
+{
+dash();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+}
+void h()
+{
+dot();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+void i()
+{
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+void j()
+{
+dot();
+delay(pause);
+dash();
+delay(pause);
+dash();
+delay(pause);
+dash();
+delay(pause);
+}
+void k()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+}
+void l()
+{
+dot();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+void m()
+{
+dash();
+delay(pause);
+dash();
+delay(pause);
+}
+void n()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+}
+void o()
+{
+dash();
+delay(pause);
+dash();
+delay(pause);
+dash();
+delay(pause);
+}
+void p()
+{
+dot();
+delay(pause);
+dash();
+delay(pause);
+dash();
+delay(pause);
+dot();
+}
+void q()
+{
+dash();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+}
+void r()
+{
+dot();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+}
+void s()
+{
+dot();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+void t()
+{
+dash();
+delay(pause);
+}
+void u()
+{
+dot();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+}
+void v()
+{
+dot();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+}
+void w()
+{
+dot();
+delay(pause);
+dash();
+delay(pause);
+dash();
+delay(pause);
+}
+void x()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+}
+void y()
+{
+dash();
+delay(pause);
+dot();
+delay(pause);
+dash();
+delay(pause);
+dash();
+delay(pause);
+}
+void z()
+{
+dash();
+delay(pause);
+dash();
+delay(pause);
+dot();
+delay(pause);
+dot();
+delay(pause);
+}
+
+// numbers
+void zero()
+{
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+}
+void one()
+{
+  dot();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+}
+void two()
+{
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+}
+void three()
+{
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+}
+void four()
+{
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dash();
+  delay(pause);
+}
+void five()
+{
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+}
+void six()
+{
+  dash();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+}
+void seven()
+{
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+}
+void eight()
+{
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dot();
+  delay(pause);
+  dot();
+  delay(pause);
+}
+void nine()
+{
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dash();
+  delay(pause);
+  dot();
+  delay(pause);
+}
+
+//function used to read the input of the user and translate it using the previous functions
+
+void scan()
+{
+  if (ch == 'a' || ch == 'A')
+  {
+    a();
+    Serial.print(" ");
+  }
+  else if (ch == 'b' || ch == 'B')
+  {
+    b();
+    Serial.print(" ");
+  }
+  else if (ch == 'c' || ch == 'C')
+  {
+    c();
+    Serial.print(" ");
+  }
+  else if (ch == 'd' || ch == 'D')
+  {
+    d();
+    Serial.print(" ");
+  }
+  else if (ch == 'e' || ch == 'E')
+  {
+    e();
+    Serial.print(" ");
+  }
+  else if (ch == 'f' || ch == 'F')
+  {
+    f();
+    Serial.print(" ");
+  }
+  else if (ch == 'g' || ch == 'G')
+  {
+    g();
+    Serial.print(" ");
+  }
+  else if (ch == 'h' || ch == 'H')
+  {
+    h();
+    Serial.print(" ");
+  }
+  else if (ch == 'i' || ch == 'I')
+  {
+    i();
+    Serial.print(" ");
+  }
+  else if (ch == 'j' || ch == 'J')
+  {
+    j();
+    Serial.print(" ");
+  }
+  else if (ch == 'k' || ch == 'K')
+  {
+    k();
+    Serial.print(" ");
+  }
+  else if (ch == 'l' || ch == 'L')
+  {
+    l();
+    Serial.print(" ");
+  }
+  else if (ch == 'm' || ch == 'M')
+  {
+    m();
+    Serial.print(" ");
+  }
+  else if (ch == 'n' || ch == 'N')
+  {
+    n();
+    Serial.print(" ");
+  }
+  else if (ch == 'o' || ch == 'O')
+  {
+    o();
+    Serial.print(" ");
+  }
+  else if (ch == 'p' || ch == 'P')
+  {
+    p();
+    Serial.print(" ");
+  }
+  else if (ch == 'q' || ch == 'Q')
+  {
+    q();
+    Serial.print(" ");
+  }
+  else if (ch == 'r' || ch == 'R')
+  {
+    r();
+    Serial.print(" ");
+  }
+  else if (ch == 's' || ch == 'S')
+  {
+    s();
+    Serial.print(" ");
+  }
+  else if (ch == 't' || ch == 'T')
+  {
+    t();
+    Serial.print(" ");
+  }
+  else if (ch == 'u' || ch == 'U')
+  {
+    u();
+    Serial.print(" ");
+  }
+  else if (ch == 'v' || ch == 'V')
+  {
+    v();
+    Serial.print(" ");
+  }
+  else if (ch == 'w' || ch == 'W')
+  {
+    w();
+    Serial.print(" ");
+  }
+  else if (ch == 'x' || ch == 'X')
+  {
+    x();
+    Serial.print(" ");
+  }
+  else if (ch == 'y' || ch == 'Y')
+  {
+    y();
+    Serial.print(" ");
+  }
+  else if (ch == 'z' || ch == 'Z')
+  {
+    z();
+    Serial.print(" ");
+  }
+  else if (ch == '0')
+  {
+    zero();
+    Serial.print(" ");
+  }
+  else if (ch == '1')
+  {
+    one();
+    Serial.print(" ");
+  }
+  else if (ch == '2')
+  {
+    two();
+    Serial.print(" ");
+  }
+  else if (ch == '3')
+  {
+    three();
+    Serial.print(" ");
+  }
+  else if (ch == '4')
+  {
+    four();
+    Serial.print(" ");
+  }
+  else if (ch == '5')
+  {
+    five();
+    Serial.print(" ");
+  }
+  else if (ch == '6')
+  {
+    six();
+    Serial.print(" ");
+  }
+  else if (ch == '7')
+  {
+    seven();
+    Serial.print(" ");
+  }
+  else if (ch == '8')
+  {
+    eight();
+    Serial.print(" ");
+  }
+  else if (ch == '9')
+  {
+    nine();
+    Serial.print(" ");
+  }
+  else if (ch == ' ')
+  {
+    Serial.print("/ ");
+    delay(pause * 7);
+  }
+  else
+    Serial.println("*end of translation*");
+}
+
+// receives user input and translates it to morse code
+void translate()
+{
+  len = input.length();
+  for (int i = 0; i < len; i++)
+  {
+    ch = input.charAt(i);
+    scan();
+  }
+}
+
+void execute()
+{
+  Serial.print(" = ");
+  translate();
+  Serial.println("");
+}
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(led, OUTPUT);
+  pinMode(buzz, OUTPUT);
+  Serial.println("Ready to translate...");
+}
+
+void loop() {
+  while (Serial.available())
+  {
+    input = Serial.readString();
+    Serial.print(input);
+    execute();
+  }
+  delay(1000);
+}
+
+
+
+
+
+
